@@ -8,6 +8,9 @@ class Snake {
     this.body[0] = createVector(0,0);
   }
 
+  /*TODO
+  fixa
+   */
   update (){
     this.body[0].x += this.xdir;
     this.body[0].y += this.ydir;
@@ -40,7 +43,9 @@ class Snake {
     }
     return false;
   }
-
+  /*TODO
+  fixa tutto
+   */
   grow(){
     this.len++;
     let head = this.body[this.len-1];
