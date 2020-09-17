@@ -18,14 +18,11 @@ function setup() {
 function draw() {
   background(220);
   scale(resolution);
-  snake.update();
   if(snake.eat(food)){
       food.pickLocation(w,h);
   }
-  fill(0,0,0);
+  snake.update();
   snake.show();
-
-  noStroke();
   food.show();
 }
 

@@ -1,6 +1,7 @@
 class Snake {
 
   constructor(){
+    this.len=1;
     this.xdir=0;
     this.ydir=0;
     this.body = [];
@@ -10,12 +11,20 @@ class Snake {
   update (){
     this.body[0].x += this.xdir;
     this.body[0].y += this.ydir;
+    let head = this.body[this.len-1];
+    head.x = this.xdir;
+    head.y = this.ydir;
+    this.body.shift();
+    this.body.push(head);
 
   }
 
   show() {
-    noStroke();
-    rect(this.body[0].x,this.body[0].y,1,1)
+    for(let i = 0; i<this.len; i++){
+      fill(0);
+      noStroke();
+      rect(this.body[0].x,this.body[0].y,1,1)
+    }
     
   }
 
@@ -32,5 +41,9 @@ class Snake {
     return false;
   }
 
-  grow();
+  grow(){
+    this.len++;
+    let head = this.body[this.len-1];
+    this.body.push(head);
+  }
 }
