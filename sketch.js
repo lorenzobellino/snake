@@ -18,12 +18,22 @@ function setup() {
 function draw() {
   background(220);
   scale(resolution);
+  if(snake.endGame()){
+      /*
+      TODO:
+        make a better endgame
+       */
+      console.log("END GAME");
+      background(255,0,0);
+      noLoop();
+  }
   if(snake.eat(food)){
       food.pickLocation(w,h);
   }
   snake.update();
   snake.show();
   food.show();
+
 }
 
 function keyPressed(){

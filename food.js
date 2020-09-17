@@ -1,4 +1,9 @@
 class Food {
+
+    /*
+    TODO:
+        prevent the food from spawning into the snake
+     */
     constructor(){
         this.x=0;
         this.y=0;
