@@ -1,18 +1,32 @@
 
 let snake;
-let resolution = 10;
+let food;
+let resolution = 20;
+let w;
+let h;
 
 function setup() {
   createCanvas(600,600);
-  //frameRate(15);
+  frameRate(10);
+  w = floor(width/resolution);
+  h = floor(height/resolution);
   snake = new Snake();
+  food = new Food();
+  food.pickLocation(w,h);
 }
 
 function draw() {
   background(220);
   scale(resolution);
   snake.update();
+  if(snake.eat(food)){
+      food.pickLocation(w,h);
+  }
+  fill(0,0,0);
   snake.show();
+
+  noStroke();
+  food.show();
 }
 
 function keyPressed(){

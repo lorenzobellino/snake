@@ -14,12 +14,23 @@ class Snake {
   }
 
   show() {
+    noStroke();
     rect(this.body[0].x,this.body[0].y,1,1)
     
   }
 
   setDir(x,y){
-    this.xdir=x/5;
-    this.ydir=y/5;
+    this.xdir=x;
+    this.ydir=y;
   }
+
+  eat(f){
+    if(this.body[0].x === f.x && this.body[0].y === f.y){
+      this.grow();
+      return true;
+    }
+    return false;
+  }
+
+  grow();
 }
