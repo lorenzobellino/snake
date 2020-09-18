@@ -12,7 +12,7 @@ function setup() {
   h = floor(height/resolution);
   snake = new Snake();
   food = new Food();
-  food.pickLocation(w,h);
+  food.pickLocation(w,h,snake);
 }
 
 function draw() {
@@ -28,7 +28,7 @@ function draw() {
       noLoop();
   }
   if(snake.eat(food)){
-      food.pickLocation(w,h);
+      food.pickLocation(w,h,snake);
   }
   snake.update();
   snake.show();
