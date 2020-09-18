@@ -18,7 +18,7 @@ class Snake {
 
   show() {
     for(let i = 0; i<this.len; i++){
-      fill(0);
+      fill(0,200,0);
       noStroke();
       rect(this.body[i].x,this.body[i].y,1,1)
     }
@@ -26,8 +26,10 @@ class Snake {
   }
 
   setDir(x,y){
-    this.xdir=x;
-    this.ydir=y;
+    if((this.ydir+y!==0 && this.xdir+x!==0)||this.xdir===0&&this.ydir===0){
+      this.xdir=x;
+      this.ydir=y;
+    }
   }
 
   eat(f){
