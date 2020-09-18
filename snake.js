@@ -34,7 +34,7 @@ class Snake {
 
   eat(f){
     if(this.body[this.len-1].x === f.x && this.body[this.len-1].y === f.y){
-        //console.log("eat");
+      //console.log("eat");
       this.grow();
       return true;
     }

@@ -4,10 +4,15 @@ let food;
 let resolution = 20;
 let w;
 let h;
+let score;
 
 function setup() {
   createCanvas(600,600);
   frameRate(10);
+  score = createDiv('Score = 0');
+  score.position(20, 20);
+  score.id = 'score';
+  score.style('color', 'white');
   w = floor(width/resolution);
   h = floor(height/resolution);
   snake = new Snake();
@@ -16,19 +21,19 @@ function setup() {
 }
 
 function draw() {
-  background(220);
+  background(100);
   scale(resolution);
   if(snake.endGame()){
-      /*
-      TODO:
-        make a better endgame
-       */
-      console.log("END GAME");
+      const scoreVal = parseInt(score.html().substring(8));
+      score.position(50,50);
+      score.html('Game ended! Your score was : ' + scoreVal);
       background(255,0,0);
       noLoop();
   }
   if(snake.eat(food)){
       food.pickLocation(w,h,snake);
+      const prevScore = parseInt(score.html().substring(8));
+      score.html('Score = ' + (prevScore + 1));
   }
   snake.update();
   snake.show();
