@@ -5,6 +5,7 @@ class Food {
         this.y=0;
         this.position=createVector(0,0);
     }
+    
     checkposition(x, y, s) {
         for(let i = 0; i<s.len;i++){
             if(s.body[i].x === x && s.body[i].y === y){
